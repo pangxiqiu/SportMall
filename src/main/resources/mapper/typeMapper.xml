@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sportmall.dao.ITypeMapper">
+
+    <!-- 获取所有类别 -->
+    <select id="getAllType" resultType="TProductType" parameterType="TProductType">
+         select * from tproducttype where 1=1
+         <if test="typename!=null and typename != ''">
+            and typename like concat('%',#{typename},'%')
+         </if>
+         <if test="typestate!=null and typestate!=0">
+            and typestate = #{typestate}
+         </if>
+         limit #{startResult},#{maxSize}
+    </select>
+
+    <!-- 获取类别总量 -->
+    <select id="getCount" resultType="Integer" parameterType="TProductType">
+        select count(*) from tproducttype where 1=1
+        <if test="typename!=null and typename != ''">
+            and typename like concat('%',#{typename},'%')
+        </if>
+        <if test="typestate!=null and typestate!=0">
+            and typestate = #{typestate}
+        </if>
+    </select>
+
+
+    <select id="getTypeInfo" resultType="TProductType">
+        select * from tproducttype where typeno = #{typeno}
+    </select>
+
+
+    <!-- 添加类别 -->
+    <insert id="addType" parameterType="TProductType">
+        insert into tproducttype (typename,typestate) values (#{typename},#{typestate})
+    </insert>
+
+    <!-- 修改类别信息 -->
+    <update id="updateType" parameterType="com.sportmall.entity.TProductType">
+        update tproducttype set
+        <if test="typename!=null and typename!=''">
+            typename = #{typename}
+        </if>
+        <if test="typestate!=null and typestate!=0">
+            typestate = #{typestate}
+        </if>
+        where typeno = #{typeno}
+    </update>
+
+
+</mapper>

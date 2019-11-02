@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sportmall.dao.IadminMapper">
+
+    <select id="userCount" resultType="int">
+		select count(*) from tuser
+	</select>
+
+    <select id="productCount" resultType="int">
+        select count(*) from tproduct
+    </select>
+
+    <select id="vipCount" resultType="int">
+        select count(*) from tuser where role != 1 and role !=2
+    </select>
+
+    <select id="companyCount" resultType="int">
+        select count(*) from tcompany
+    </select>
+
+    <select id="orderCount" resultType="int">
+        select count(*) from torder
+    </select>
+
+    <select id="commentCount" resultType="int">
+        select count(*) from tcomment
+    </select>
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="TUser" type="com.sportmall.entity.TUser"/>
+        <typeAlias alias="TVip" type="com.sportmall.entity.TVip"/>
+        <typeAlias alias="TProduct" type="com.sportmall.entity.TProduct"/>
+        <typeAlias alias="TProductType" type="com.sportmall.entity.TProductType"/>
+        <typeAlias alias="TUserCondition" type="com.sportmall.entity.dto.TUserCondition"/>
+        <typeAlias alias="TShopCar" type="com.sportmall.entity.TShopCar"/>
+        <typeAlias alias="TAddress" type="com.sportmall.entity.TAddress"/>
+        <typeAlias alias="TOrder" type="com.sportmall.entity.TOrder"/>
+        <typeAlias alias="TOrderDetail" type="com.sportmall.entity.TOrderDetail"/>
+        <typeAlias alias="TCompany" type="com.sportmall.entity.TCompany"/>
+        <typeAlias alias="TComment" type="com.sportmall.entity.TComment"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml" />
+        <mapper resource="mapper/ProductMapper.xml" />
+        <mapper resource="mapper/adminMapper.xml" />
+        <mapper resource="mapper/typeMapper.xml" />
+        <mapper resource="mapper/vipMapper.xml" />
+        <mapper resource="mapper/shopCarMapper.xml" />
+        <mapper resource="mapper/addressMapper.xml" />
+        <mapper resource="mapper/orderMapper.xml" />
+        <mapper resource="mapper/companyMapper.xml" />
+        <mapper resource="mapper/commentMapper.xml" />
+        <!--<mapper resource="com/sportmall/dao/batis/ProductMapper.xml" />-->
+    </mappers>
+
+
+</configuration>

@@ -1,0 +1,57 @@
+
+
+
+
+a:link{
+	color: black;
+	text-decoration: none;
+}
+
+
+a:visited{
+	color: black;
+	text-decoration: none;
+}
+
+a:hover{
+	color: cornflowerblue;
+	text-decoration: none;
+}
+
+a:active{
+	font-size: 15px;
+}
+
+
+
+.TAB-register{
+	/*margin-left: auto;*/
+	border: solid 1px cornflowerblue;
+	margin: auto;
+	text-align: center;
+}
+
+
+.TAB-register td{
+	 border: solid 1px cornflowerblue;
+	height: 60px;
+	width: 200px;
+}
+
+.BUT-register{
+	margin: auto;
+	width: 200px;
+	height: 30px;
+	background-color: cornflowerblue;
+	border: solid 1px cornflowerblue;
+	color: white;
+	border-radius: 5px;
+}
+
+.TAB-null{
+	border: 0px;
+}
+
+.TAB-null td{
+	border:0px;
+}

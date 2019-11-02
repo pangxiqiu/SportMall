@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sportmall.dao.IorderMapper">
+
+    <insert id="insertOrder" parameterType="TOrder">
+        insert into torder (ono,uid,allprice,receiver,tel,address,odate,ostate) values (#{ono},#{uid},#{allprice},#{receiver},#{tel},#{address},#{odate},#{ostate})
+    </insert>
+
+    <insert id="insertOrderDetail" parameterType="TOrderDetail">
+        insert into torderdetail (ono,pno,amount,price,iscomment) values (#{ono},#{pno},#{amount},#{price},#{iscomment})
+    </insert>
+
+    <select id="getMyOrder" resultType="TOrder" parameterType="TOrder">
+        select * from torder where uid = #{uid}
+         <if test="ostate!=null and ostate!=0">
+             and ostate = #{ostate}
+         </if>
+         order by id desc
+    </select>
+
+    <select id="getOrderDetail" resultType="TOrderDetail">
+        select * from torderDetail where ono = #{ono}
+    </select>
+
+    <select id="isComment" resultType="TOrderDetail">
+        select *  from torderdetail where ono = #{ono}  and pno = #{pno}
+    </select>
+
+    <select id="getOrderByOno" resultType="TOrder">
+        select * from torder where ono = #{ono}
+    </select>
+
+    <update id="isCommpented">
+        update torderdetail  set iscomment = 1 where ono = #{ono} and pno = #{pno}
+    </update>
+
+    <!--<update id="payOrder" parameterType="TOrder">-->
+        <!--update torder set paydate = #{paydate},ostate = #{ostate} where ono = #{ono}-->
+    <!--</update>-->
+
+    <update id="updateOstate" parameterType="TOrder">
+        update torder
+        <trim prefix="set" suffixOverrides=",">
+            <if test="paydate!=null">
+                paydate = #{paydate},
+            </if>
+            <if test="ostate!=null and ostate!=0">
+                ostate = #{ostate},
+            </if>
+            <if test="senddate!=null">
+                senddate = #{senddate},
+            </if>
+            <if test="cname!=null and cname!=''">
+                cname = #{cname},
+            </if>
+        </trim>
+        where ono = #{ono}
+    </update>
+
+
+    <select id="getAllOrders" parameterType="com.sportmall.entity.dto.TOrderCondition" resultType="TOrder">
+        select * from torder where 1=1
+        <include refid="where"></include>
+        limit #{startResult},#{maxSize}
+    </select>
+
+    <select id="getOrderCounts" resultType="Integer"  parameterType="com.sportmall.entity.dto.TOrderCondition">
+        select COUNT(*) from torder where 1=1
+        <include refid="where"></include>
+    </select>
+
+    <sql id="where">
+        <if test="ono != null and ono != ''">
+            and ono like concat('%',#{ono},'%')
+        </if>
+        <if test="uid != null and uid != 0">
+            and uid = #{uid}
+        </if>
+        <if test="ostate != null and ostate != 0">
+            and ostate = #{ostate}
+        </if>
+        <!--<if test="begin_odate != null">-->
+            <!--and odate > #{begin_odate}-->
+        <!--</if>-->
+        <!--<if test="end_odate != null">-->
+            <!--and odate > #{end_odate}-->
+        <!--</if>-->
+    </sql>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sportmall.dao.IaddressMapper">
+
+    <select id="getAddress" resultType="com.sportmall.entity.TAddress">
+		select * from taddress where uid = #{uid}
+	</select>
+
+	<select id="getAddressById" resultType="com.sportmall.entity.TAddress">
+		select * from taddress where id = #{id}
+	</select>
+
+	<insert id="addAddress" parameterType="TAddress">
+		insert into taddress (uid,address,receiver,tel) values (#{uid},#{address},#{receiver},#{tel})
+	</insert>
+
+	<update id="updateAddress" parameterType="TAddress">
+		update taddress
+		<set>
+			<if test="address != null and address != ''">
+				address = #{address}
+			</if>
+			<if test="receiver != null and receiver != ''">
+				,receiver = #{receiver}
+			</if>
+			<if test="tel != null and tel != ''">
+				,tel = #{tel}
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteAddress">
+		delete from taddress where id = #{id}
+	</delete>
+
+</mapper>
