@@ -55,4 +55,5 @@ public class PropUtil {
 	public static String get(String key) {
 		return prop.getProperty(key);
 	}
+
 }

@@ -34,6 +34,7 @@ public class ConnectionUtils {
         factory.setUsername(PropUtil.get("username"));
         // 密码
         factory.setPassword(PropUtil.get("password"));
+
         return factory.newConnection();
     }
     /**
