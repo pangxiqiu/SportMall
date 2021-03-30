@@ -19,6 +19,7 @@ import com.bjsy.sendEMail.util.SendUtil;
 
 @Component
 public class OneKeyOil {
+
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	private String dt = sdf.format(new Date(System.currentTimeMillis() - 60 * 60 * 1000 * 24));
 	private String errorinfo = "";

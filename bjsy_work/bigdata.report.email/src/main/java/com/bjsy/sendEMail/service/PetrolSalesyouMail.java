@@ -16,6 +16,7 @@ import java.util.*;
  */
 @Component
 public class PetrolSalesyouMail {
+
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	private String dt = sdf.format(new Date(System.currentTimeMillis() - 60 * 60 * 1000 * 24));
 	private String errorinfo = "";

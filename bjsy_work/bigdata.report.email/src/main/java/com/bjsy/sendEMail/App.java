@@ -17,6 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class App {
 
     public static void main(String[] args) throws Exception {
+
    	//定时任务启动
     	SpringApplication.run(App.class, args);
 /*    //手动补发方法  传入参数dt,reportname

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Schedul {
+
 	String dt = "";
 	String filepath = "";
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");

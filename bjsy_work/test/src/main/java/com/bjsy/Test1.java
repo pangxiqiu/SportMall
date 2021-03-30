@@ -14,6 +14,7 @@ public class Test1 {
 
 
     public static void main(String[] args) {
+
 //        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
 //        String format = df.format(new Date());
 //        System.out.println();// new Date()为获取当前系统时间

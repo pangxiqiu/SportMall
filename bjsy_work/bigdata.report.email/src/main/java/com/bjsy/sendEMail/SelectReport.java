@@ -11,6 +11,7 @@ public class SelectReport {
     String dt;
    
    public void sendEmail() throws Exception{
+
 	   Schedul s=new Schedul();
 	   switch (reportname) {
 	   case "onekey":
